@@ -1,10 +1,3 @@
-import javafx.util.Pair;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.Set;
-
 public class Number_of_Islands {
     class Solution {
         public int numIslands(char[][] grid) {
