@@ -3,23 +3,17 @@ package leetcode;
 public class Valid_Palindrome {
     static class Solution {
         public boolean isPalindrome(String s) {
-            s = s.toLowerCase();
+            String s1 = s.toLowerCase();
             int l = 0;
-            int r = s.length() - 1;
+            int r = s1.length() - 1;
             while (l < r) {
-                char lChar = s.charAt(l);
-                char rChar = s.charAt(r);
-                if (!Character.isLetterOrDigit(lChar)) {
+                if (Character.isLetterOrDigit(s1.charAt(l))) {
                     l++;
-                    continue;
                 }
-                if (!Character.isLetterOrDigit(rChar)) {
+                if (Character.isLetterOrDigit(s1.charAt(r))) {
                     r--;
-                    continue;
                 }
-                if (lChar != rChar) {
-                    return false;
-                }
+                if (s1.charAt(l) != s1.charAt(r)) return false;
                 l++;
                 r--;
             }

@@ -5,15 +5,16 @@ public class Maximize_Distance_to_Closest_Person {
         public int maxDistToClosest(int[] seats) {
             int maxDist = 0;
             int start = 0;
-            int n = seats.length;
-            for (int i = 0; i < n; i++) {
-                if ((seats[i] == 1 && start == 0 && seats[start] == 0) || (i == n - 1 && seats[i] == 0)) {
-                    maxDist = Math.max(maxDist, i - start);
-                    start = i;
-                } else if (seats[i] == 1) {
-                    maxDist = Math.max(maxDist, (i - start) / 2);
-                    start = i;
+            int end = 0;
+            while (end < seats.length) {
+                maxDist = Math.max(maxDist, end - start);
+                if ((seats[end] == 1 && start == 0 && seats[start] == 0) || (seats[end] == 0 && end == seats.length - 1)) {
+                    maxDist = Math.max(maxDist, end - start);
+                } else if (seats[end] == 1) {
+                    maxDist = Math.max(maxDist, (end - start)/2);
+                    start = end;
                 }
+                end++;
             }
             return maxDist;
         }
